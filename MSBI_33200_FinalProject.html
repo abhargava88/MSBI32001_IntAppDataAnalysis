@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.587">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ankur Bhargava">
+<meta name="author" content="Won Chang">
+<meta name="author" content="Eliza Perchanok">
+<meta name="dcterms.date" content="2022-08-10">
+
+<title>MSBI 33200 - Final Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="MSBI_33200_FinalProject_files/libs/clipboard/clipboard.min.js"></script>
+<script src="MSBI_33200_FinalProject_files/libs/quarto-html/quarto.js"></script>
+<script src="MSBI_33200_FinalProject_files/libs/quarto-html/popper.min.js"></script>
+<script src="MSBI_33200_FinalProject_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="MSBI_33200_FinalProject_files/libs/quarto-html/anchor.min.js"></script>
+<link href="MSBI_33200_FinalProject_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="MSBI_33200_FinalProject_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="MSBI_33200_FinalProject_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="MSBI_33200_FinalProject_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="MSBI_33200_FinalProject_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble">Preamble</a>
+  <ul class="collapse">
+  <li><a href="#dataset-description" id="toc-dataset-description" class="nav-link" data-scroll-target="#dataset-description">Dataset Description</a></li>
+  <li><a href="#project-description" id="toc-project-description" class="nav-link" data-scroll-target="#project-description">Project Description</a></li>
+  </ul></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a>
+  <ul class="collapse">
+  <li><a href="#global-burden-of-t2dm" id="toc-global-burden-of-t2dm" class="nav-link" data-scroll-target="#global-burden-of-t2dm">Global Burden of T2DM</a></li>
+  <li><a href="#pathophysiology-of-t2dm---from-uptodate" id="toc-pathophysiology-of-t2dm---from-uptodate" class="nav-link" data-scroll-target="#pathophysiology-of-t2dm---from-uptodate">Pathophysiology of T2DM - from UpToDate</a></li>
+  <li><a href="#rationale-for-computer-aided-prediction-of-possible-t2dm" id="toc-rationale-for-computer-aided-prediction-of-possible-t2dm" class="nav-link" data-scroll-target="#rationale-for-computer-aided-prediction-of-possible-t2dm">Rationale for Computer-Aided Prediction of Possible T2DM</a></li>
+  </ul></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory Data Analysis</a>
+  <ul class="collapse">
+  <li><a href="#missingness-visualization" id="toc-missingness-visualization" class="nav-link" data-scroll-target="#missingness-visualization">Missingness Visualization</a></li>
+  <li><a href="#age-histogram" id="toc-age-histogram" class="nav-link" data-scroll-target="#age-histogram">Age Histogram</a></li>
+  <li><a href="#gender-percentages" id="toc-gender-percentages" class="nav-link" data-scroll-target="#gender-percentages">Gender Percentages</a></li>
+  <li><a href="#positive-vs.-negative-exemplars" id="toc-positive-vs.-negative-exemplars" class="nav-link" data-scroll-target="#positive-vs.-negative-exemplars">Positive vs.&nbsp;Negative Exemplars</a></li>
+  <li><a href="#eliza-chi-square-test" id="toc-eliza-chi-square-test" class="nav-link" data-scroll-target="#eliza-chi-square-test">Eliza: Chi-Square Test</a>
+  <ul class="collapse">
+  <li><a href="#x2-contingency-table" id="toc-x2-contingency-table" class="nav-link" data-scroll-target="#x2-contingency-table">2x2 Contingency Table</a></li>
+  <li><a href="#hypotheses" id="toc-hypotheses" class="nav-link" data-scroll-target="#hypotheses">Hypotheses</a></li>
+  <li><a href="#chi-square-test" id="toc-chi-square-test" class="nav-link" data-scroll-target="#chi-square-test">Chi-Square Test</a></li>
+  </ul></li>
+  <li><a href="#correlogram" id="toc-correlogram" class="nav-link" data-scroll-target="#correlogram">Correlogram</a></li>
+  <li><a href="#spearman-correlation-plot" id="toc-spearman-correlation-plot" class="nav-link" data-scroll-target="#spearman-correlation-plot">Spearman Correlation Plot</a></li>
+  </ul></li>
+  <li><a href="#logistic-regression-in-r" id="toc-logistic-regression-in-r" class="nav-link" data-scroll-target="#logistic-regression-in-r">Logistic Regression in R</a></li>
+  <li><a href="#machine-learning-in-python-with-r-data-preparation" id="toc-machine-learning-in-python-with-r-data-preparation" class="nav-link" data-scroll-target="#machine-learning-in-python-with-r-data-preparation">Machine Learning in Python with R Data Preparation</a>
+  <ul class="collapse">
+  <li><a href="#load-split-data-into-train-test" id="toc-load-split-data-into-train-test" class="nav-link" data-scroll-target="#load-split-data-into-train-test">Load &amp; Split Data into Train-Test</a></li>
+  <li><a href="#logistic-regression---spawnfitpredict" id="toc-logistic-regression---spawnfitpredict" class="nav-link" data-scroll-target="#logistic-regression---spawnfitpredict">Logistic Regression - Spawn/Fit/Predict</a></li>
+  <li><a href="#logistic-regression-metrics" id="toc-logistic-regression-metrics" class="nav-link" data-scroll-target="#logistic-regression-metrics">Logistic Regression Metrics</a></li>
+  <li><a href="#gaussian-naive-bayes---spawnfitpredict" id="toc-gaussian-naive-bayes---spawnfitpredict" class="nav-link" data-scroll-target="#gaussian-naive-bayes---spawnfitpredict">Gaussian Naive Bayes - Spawn/Fit/Predict</a></li>
+  <li><a href="#gaussian-naive-bayes-metrics" id="toc-gaussian-naive-bayes-metrics" class="nav-link" data-scroll-target="#gaussian-naive-bayes-metrics">Gaussian Naive Bayes Metrics</a></li>
+  <li><a href="#xgboost---spawnfitpredict" id="toc-xgboost---spawnfitpredict" class="nav-link" data-scroll-target="#xgboost---spawnfitpredict">XGBoost - Spawn/Fit/Predict</a></li>
+  <li><a href="#xgboost-metrics" id="toc-xgboost-metrics" class="nav-link" data-scroll-target="#xgboost-metrics">XGBoost Metrics</a>
+  <ul class="collapse">
+  <li><a href="#confusion-matrix-metrics" id="toc-confusion-matrix-metrics" class="nav-link" data-scroll-target="#confusion-matrix-metrics">Confusion Matrix &amp; Metrics</a></li>
+  <li><a href="#predicted-vs.-actuals" id="toc-predicted-vs.-actuals" class="nav-link" data-scroll-target="#predicted-vs.-actuals">Predicted vs.&nbsp;Actuals</a></li>
+  <li><a href="#learning-curve" id="toc-learning-curve" class="nav-link" data-scroll-target="#learning-curve">Learning Curve</a></li>
+  <li><a href="#feature-importance" id="toc-feature-importance" class="nav-link" data-scroll-target="#feature-importance">Feature Importance</a></li>
+  <li><a href="#visualization-of-decision-trees" id="toc-visualization-of-decision-trees" class="nav-link" data-scroll-target="#visualization-of-decision-trees">Visualization of Decision Trees</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#model-evaluation-recap" id="toc-model-evaluation-recap" class="nav-link" data-scroll-target="#model-evaluation-recap">Model Evaluation Recap</a>
+  <ul class="collapse">
+  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table">Summary Table</a></li>
+  <li><a href="#roc-curves" id="toc-roc-curves" class="nav-link" data-scroll-target="#roc-curves">ROC Curves</a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MSBI 33200 - Final Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Ankur Bhargava </p>
+             <p>Won Chang </p>
+             <p>Eliza Perchanok </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 10, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="preamble" class="level1">
+<h1>Preamble</h1>
+<section id="dataset-description" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-description">Dataset Description</h2>
+<p>These data were collected using questionnaires approved by a physician from the patients of Sylhet Diabetes Hospital in Sylhet, Bangladesh <span class="citation" data-cites="RN1">(<a href="#ref-RN1" role="doc-biblioref">Islam, Ferdousi, Rahman, &amp; Bushra, 2019</a>)</span>.</p>
+</section>
+<section id="project-description" class="level2">
+<h2 class="anchored" data-anchor-id="project-description">Project Description</h2>
+<p>This project entails the development and elucidation of the best machine learning model that could potentially aid the more rapid detection of early-stage diabetes on the basis of patient-described symptoms. What will be demonstrated here can be thought of as the second step in a computer-aided diagnostic pipeline where the first was the use of Natural Language Processing (NLP) to extract key symptomatology from patient reports contained in clinical notes.</p>
+</section>
+</section>
+<section id="background" class="level1">
+<h1>Background</h1>
+<section id="global-burden-of-t2dm" class="level2">
+<h2 class="anchored" data-anchor-id="global-burden-of-t2dm">Global Burden of T2DM</h2>
+<p>The incidence of Type 2 (non-insulin-dependent) diabetes (T2DM) has been increasing worldwide. According to the Global Burden of Disease Dataset, approximately 6.28% of the world’s population (~462 million individuals) were afflicted with T2DM. In 2017, the estimated prevalence of T2DM was 6059 per 100,000 cases. Over 1 million deaths annually can be attributed solely to T2DM making it the 9th leading cause of mortality. Incidence of T2DM is rising globally, and at a faster rate in developed regions. By 2030, the estimated prevalence is projected to be 7079 per 100,000. Early detection and treatment of T2DM will be critical to mitigate this increase <span class="citation" data-cites="RN2">(<a href="#ref-RN2" role="doc-biblioref">Khan et al., 2020</a>)</span>.</p>
+<p>Certain regions of the world, such as Pacific Ocean island nations, sustain the highest prevalence of disease. These countries include Fiji (20,277 per 100,000), Mauritius (18,545), American Samoa (18,312), and Kiribati (17,432). Southeast Asian countries, such as Indonesia, Malaysia, Thailand, and Vietnam, have moved up the ranks in the last two decades. Owing to their large population sizes, China (88.5 million individuals with type 2 diabetes), India (65.9 million), and the US (28.9 million) retain the top spots as the countries with the greatest total number of individuals with this condition <span class="citation" data-cites="RN1">(<a href="#ref-RN1" role="doc-biblioref">Islam et al., 2019</a>)</span>.</p>
+<p><strong>Forecasted Prevalence of T2DM</strong></p>
+<p><img src="supporting_files/JEGH-10-1-107-g002.jpg" class="img-fluid" alt="Forecasted Prevalence of T2DM"><br>
+<span class="citation" data-cites="RN1">(<a href="#ref-RN1" role="doc-biblioref">Islam et al., 2019</a>)</span></p>
+</section>
+<section id="pathophysiology-of-t2dm---from-uptodate" class="level2">
+<h2 class="anchored" data-anchor-id="pathophysiology-of-t2dm---from-uptodate">Pathophysiology of T2DM - from UpToDate</h2>
+<p>“Type 2 diabetes is by far the most common type of diabetes in adults (&gt;90 percent) and is characterized by hyperglycemia usually due to progressive loss of insulin secretion from the beta cell superimposed on a background of insulin resistance, resulting in relative insulin deficiency. The majority of patients are asymptomatic at presentation, with hyperglycemia noted on routine laboratory evaluation, prompting further testing. The frequency of symptomatic diabetes has been decreasing in parallel with improved efforts to diagnose diabetes earlier through screening.</p>
+<p>The classic symptoms of hyperglycemia (including polyuria, polydipsia, nocturia, blurred vision, and weight loss) are often noted only in retrospect after a blood glucose value has been shown to be elevated. Polyuria occurs when the serum glucose concentration rises significantly above 180 mg/dL (10 mmol/L), exceeding the renal threshold for glucose reabsorption, which leads to increased urinary glucose excretion. Glycosuria causes osmotic diuresis (i.e., polyuria) and hypovolemia, which in turn can lead to polydipsia. Patients who replete their volume losses with concentrated sugar drinks, such as non-diet sodas, exacerbate their hyperglycemia and osmotic diuresis.</p>
+<p>Rarely adults with type 2 diabetes can present with a hyperosmolar hyperglycemic state, characterized by marked hyperglycemia, severe dehydration, and obtundation, but without ketoacidosis. Diabetic ketoacidosis (DKA) as the presenting symptom of type 2 diabetes is also uncommon in adults but may occur under certain circumstances (usually severe infection or other acute illness)” <span class="citation" data-cites="RN3">(<a href="#ref-RN3" role="doc-biblioref">Inzucchi, 2022</a>)</span>.</p>
+</section>
+<section id="rationale-for-computer-aided-prediction-of-possible-t2dm" class="level2">
+<h2 class="anchored" data-anchor-id="rationale-for-computer-aided-prediction-of-possible-t2dm">Rationale for Computer-Aided Prediction of Possible T2DM</h2>
+<p>Individuals with pre-diabetes lose approximately 4.3 years of potential life. Individuals with diabetes lose nearly 7.9 years of potential life. The years of potential life lost (YPLL) increases linearly with increasing disease severity and associated comorbidities (e.g.&nbsp;congestive heart failure, limb amputation, blindness) <span class="citation" data-cites="RN4">(<a href="#ref-RN4" role="doc-biblioref">Bloomgarden, 2021</a>)</span>. In the United States, approximately 16 million adults have undiagnosed T2DM, and an estimated $327 billion dollars in economic productivity was lost in 2017 due to T2DM <span class="citation" data-cites="RN9">CDC (<a href="#ref-RN10" role="doc-biblioref">2021</a>)</span>. It is therefore a worthwhile endeavor to speed up the early detection of this disorder and maintain normoglycemic states for as many individuals as possible.</p>
+<p>The risks of a false positive diagnosis of T2DM may include psychological distress and unnecessary employment of medications. The risks of a false negative diagnosis of T2DM, however, include that of premature death. There is existing precedence for the use of machine learning models for early diagnosis of conditions (e.g.&nbsp;Chronic Myelogenous Leukemia - CML) <span class="citation" data-cites="RN5">(<a href="#ref-RN5" role="doc-biblioref">Hauser et al., 2021</a>)</span>, so we aim to create a similar predictive model here.</p>
+</section>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<ul>
+<li>The data set used for creating the models is noted above.</li>
+<li>Exploratory data analysis (EDA) will be performed.
+<ul>
+<li>Missingness</li>
+<li>Counts, Histograms</li>
+<li>Correlogram</li>
+</ul></li>
+<li>ML Algorithms - Naive
+<ul>
+<li>Logistic Regression - considered the “go-to” method for binary classification problems, such as this one <span class="citation" data-cites="RN6">(<a href="#ref-RN6" role="doc-biblioref">Brownlee, 2020a</a>)</span>. Application of L2 regularization by default.</li>
+<li>Gaussian Naive Bayes <span class="citation" data-cites="RN7">(<a href="#ref-RN7" role="doc-biblioref">Brownlee, 2020b</a>)</span></li>
+<li>XGBoost - Also considered a good choice for this kind of problem and data set <span class="citation" data-cites="RN8">(<a href="#ref-RN8" role="doc-biblioref">Datacamp, n.d.</a>)</span>. Training 100 trees (XGBoost Default).</li>
+</ul></li>
+<li>Tools
+<ul>
+<li>R version 4.2.0
+<ul>
+<li>Tidyverse</li>
+<li>data.table</li>
+<li>mltools</li>
+<li>rcompanion</li>
+<li>corrr</li>
+<li>reticulate</li>
+</ul></li>
+<li>Python version 3.9.12
+<ul>
+<li>Scikit-learn</li>
+<li>Numpy</li>
+<li>Pandas</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="exploratory-data-analysis" class="level1">
+<h1>Exploratory Data Analysis</h1>
+<section id="missingness-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="missingness-visualization">Missingness Visualization</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/Missingness%20Visualization-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Nothing is missing - complete dataset. No imputation required.</p>
+</section>
+<section id="age-histogram" class="level2">
+<h2 class="anchored" data-anchor-id="age-histogram">Age Histogram</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/Age%20Histogram-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Age appears to be normally distributed in this data set.</p>
+</section>
+<section id="gender-percentages" class="level2">
+<h2 class="anchored" data-anchor-id="gender-percentages">Gender Percentages</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/Gender%20Percentages-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Gender also appears to be nearly equally distributed between Male and Female.</p>
+</section>
+<section id="positive-vs.-negative-exemplars" class="level2">
+<h2 class="anchored" data-anchor-id="positive-vs.-negative-exemplars">Positive vs.&nbsp;Negative Exemplars</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/class-breakdown-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The classes are not terribly imbalanced, so a method like <a href="https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/">SMOTE</a> is not needed.</p>
+</section>
+<section id="eliza-chi-square-test" class="level2">
+<h2 class="anchored" data-anchor-id="eliza-chi-square-test">Eliza: Chi-Square Test</h2>
+<section id="x2-contingency-table" class="level3">
+<h3 class="anchored" data-anchor-id="x2-contingency-table">2x2 Contingency Table</h3>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Genital Thrush'. You can override using
+the `.groups` argument.</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Genital Thrush</th>
+<th style="text-align: right;">No Pre-DM</th>
+<th style="text-align: right;">Pre-DM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">No</td>
+<td style="text-align: right;">167</td>
+<td style="text-align: right;">237</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">320</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="hypotheses" class="level3">
+<h3 class="anchored" data-anchor-id="hypotheses">Hypotheses</h3>
+<p><span class="math inline">\(H_{0}:\)</span> There is no difference in the reports of genital thrush between those with early-stage diabetes and those without.</p>
+<p><span class="math inline">\(H_{a}:\)</span> There is a difference in the reports of genital thrush between those with early-stage diabetes and those without.</p>
+</section>
+<section id="chi-square-test" class="level3">
+<h3 class="anchored" data-anchor-id="chi-square-test">Chi-Square Test</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  diabetes$GENITAL_THRUSH and diabetes$CLASS
+X-squared = 5.7921, df = 1, p-value = 0.0161</code></pre>
+</div>
+</div>
+<p><strong>Conclusion:</strong></p>
+<p>Reject the null and state that there is a difference in the reports of genital thrush between those with early-stage diabetes and those without early-stage diabetes.</p>
+</section>
+</section>
+<section id="correlogram" class="level2">
+<h2 class="anchored" data-anchor-id="correlogram">Correlogram</h2>
+<p><a href="https://stackoverflow.com/questions/52554336/plot-the-equivalent-of-correlation-matrix-for-factors-categorical-data-and-mi">REFERENCE FOR HOW THIS WAS BUILT</a></p>
+<div class="cell">
+
+</div>
+<div class="cell fig-cap-location-bottom">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/correlation-plot-network-diagram-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Network Diagram Correlation Plot - Diabetes Dataset</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above correlogram displays the effect size (calculated with Cramér’s V). This is a measure of the strength of association between variables in a chi-square test <a href="https://www.ibm.com/docs/en/cognos-analytics/11.1.0?topic=terms-cramrs-v">REFERENCE</a>.</p>
+</section>
+<section id="spearman-correlation-plot" class="level2">
+<h2 class="anchored" data-anchor-id="spearman-correlation-plot">Spearman Correlation Plot</h2>
+<div class="cell">
+
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="supporting_files/spearman_corr_plot.PNG" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Spearman Correlation Plot</figcaption><p></p>
+</figure>
+</div>
+<p>The above demonstrates that polyuria, polydipsia, polyphagia, and sudden weight loss are all moderately correlated with presence of early-stage diabetes.</p>
+</section>
+</section>
+<section id="logistic-regression-in-r" class="level1">
+<h1>Logistic Regression in R</h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = CLASS ~ ., family = "binomial", data = diabetes %&gt;% 
+    mutate(across(where(is.character), as.factor)) %&gt;% mutate(across(where(is.factor), 
+    as.numeric)) %&gt;% mutate(across(2:17, ~.x - 1)))
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-2.85636  -0.22769   0.00317   0.05440   2.77671  
+
+Coefficients:
+                 Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)       2.74660    1.07547   2.554 0.010654 *  
+AGE              -0.05117    0.02536  -2.017 0.043657 *  
+GENDER           -4.35118    0.59819  -7.274 3.49e-13 ***
+POLYURIA          4.43954    0.70527   6.295 3.08e-10 ***
+POLYDIPSIA        5.07044    0.82887   6.117 9.52e-10 ***
+SUDDEN_WT_LOSS    0.19033    0.54765   0.348 0.728193    
+WEAKNESS          0.81707    0.53680   1.522 0.127985    
+POLYPHAGIA        1.19377    0.53351   2.238 0.025250 *  
+GENITAL_THRUSH    1.86365    0.55331   3.368 0.000757 ***
+VIS_BLUR          0.91587    0.65121   1.406 0.159600    
+ITCHING          -2.80293    0.67268  -4.167 3.09e-05 ***
+IRRITABILITY      2.34073    0.59053   3.964 7.38e-05 ***
+IMPAIRED_HEALING -0.39163    0.55004  -0.712 0.476456    
+PARTIAL_PARESIS   1.15930    0.52482   2.209 0.027177 *  
+MUSCLE_STIFFNESS -0.72876    0.58020  -1.256 0.209101    
+ALOPECIA          0.15036    0.62008   0.242 0.808402    
+OBESITY          -0.28904    0.54433  -0.531 0.595424    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 692.93  on 519  degrees of freedom
+Residual deviance: 171.65  on 503  degrees of freedom
+AIC: 205.65
+
+Number of Fisher Scoring iterations: 8</code></pre>
+</div>
+</div>
+<p>According to this logistic regression, the presence of polyuria, polydipsia, weight loss, genital thrush, itching, or irritability all increase the log odds of having early-stage diabetes.</p>
+<div class="cell fig-cap-location-bottom">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/logistic-regression-graph-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Visualization of Logistic Regression</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="machine-learning-in-python-with-r-data-preparation" class="level1 page-columns page-full">
+<h1>Machine Learning in Python with R Data Preparation</h1>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">AGE</th>
+<th style="text-align: right;">GENDER_Male</th>
+<th style="text-align: right;">POLYURIA_Yes</th>
+<th style="text-align: right;">POLYDIPSIA_Yes</th>
+<th style="text-align: right;">SUDDEN_WT_LOSS_Yes</th>
+<th style="text-align: right;">WEAKNESS_Yes</th>
+<th style="text-align: right;">POLYPHAGIA_Yes</th>
+<th style="text-align: right;">GENITAL_THRUSH_Yes</th>
+<th style="text-align: right;">VIS_BLUR_Yes</th>
+<th style="text-align: right;">ITCHING_Yes</th>
+<th style="text-align: right;">IRRITABILITY_Yes</th>
+<th style="text-align: right;">IMPAIRED_HEALING_Yes</th>
+<th style="text-align: right;">PARTIAL_PARESIS_Yes</th>
+<th style="text-align: right;">MUSCLE_STIFFNESS_Yes</th>
+<th style="text-align: right;">ALOPECIA_Yes</th>
+<th style="text-align: right;">OBESITY_Yes</th>
+<th style="text-align: right;">CLASS_Positive</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-learn-intelex)
+M:\R\library\reticulate\python\rpytools\loader.py:39: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  module = _import(
+C:\Users\abhar\anaconda3\envs\MSBI_33200\lib\site-packages\xgboost\compat.py:36: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  from pandas import MultiIndex, Int64Index</code></pre>
+</div>
+</div>
+<section id="load-split-data-into-train-test" class="level2">
+<h2 class="anchored" data-anchor-id="load-split-data-into-train-test">Load &amp; Split Data into Train-Test</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dm_one_hot <span class="op">=</span> r.dm_onehot <span class="co"># the r. prefix allows for interfacing with the R environment and 'dragging' objects into Python</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> dm_one_hot.drop([<span class="st">'CLASS_Positive'</span>], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dm_one_hot[<span class="st">'CLASS_Positive'</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>(X_train, X_test, y_train, y_test) <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="logistic-regression---spawnfitpredict" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression---spawnfitpredict">Logistic Regression - Spawn/Fit/Predict</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># REF: LR Solvers - https://stackoverflow.com/questions/38640109/logistic-regression-python-solvers-definitions</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> LogisticRegression() <span class="co"># L2 penalty (Ridge) is applied by default </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>lr_pred <span class="op">=</span> lr.fit(X_train,y_train).predict(X_test)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>lr_predict_proba <span class="op">=</span> lr.predict_proba(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>C:\Users\abhar\anaconda3\envs\MSBI_33200\lib\site-packages\daal4py\sklearn\linear_model\logistic_path.py:548: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(</code></pre>
+</div>
+</div>
+</section>
+<section id="logistic-regression-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression-metrics">Logistic Regression Metrics</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay object at 0x000001EACE2B7BB0&gt;</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/confusion-matrix-logistic-regression-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.952
+Precision: 0.954
+Recall: 0.969
+F1: 0.961
+R^2: 0.797
+MAE: 0.048
+RMSE: 0.219</code></pre>
+</div>
+</div>
+</section>
+<section id="gaussian-naive-bayes---spawnfitpredict" class="level2">
+<h2 class="anchored" data-anchor-id="gaussian-naive-bayes---spawnfitpredict">Gaussian Naive Bayes - Spawn/Fit/Predict</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gnb <span class="op">=</span> GaussianNB()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>gnb_pred <span class="op">=</span> gnb.fit(X_train, y_train).predict(X_test)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>gnb_predict_proba <span class="op">=</span> gnb.predict_proba(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gaussian-naive-bayes-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="gaussian-naive-bayes-metrics">Gaussian Naive Bayes Metrics</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay object at 0x000001EAD0E083D0&gt;</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/confusion-matrix-gnb-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.933
+Precision: 0.913
+Recall: 0.984
+F1: 0.947
+R^2: 0.716
+MAE: 0.067
+RMSE: 0.259</code></pre>
+</div>
+</div>
+</section>
+<section id="xgboost---spawnfitpredict" class="level2">
+<h2 class="anchored" data-anchor-id="xgboost---spawnfitpredict">XGBoost - Spawn/Fit/Predict</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># REF: https://machinelearningmastery.com/develop-first-xgboost-model-python-scikit-learn/</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># REF: https://machinelearningmastery.com/tune-xgboost-performance-with-learning-curves/ (for performance metrics)</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Model predictions on the test data </span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>xgb <span class="op">=</span> xgboost.XGBClassifier(use_label_encoder <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># REF: Necessary? https://stackoverflow.com/questions/68766331/how-to-apply-predict-to-xgboost-cross-validation</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># XGBoost - the default number of boosting rounds is 100 </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>evalset <span class="op">=</span> [(X_train, y_train), (X_test, y_test)]</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>xgb <span class="op">=</span> xgb.fit(X_train, y_train, eval_metric <span class="op">=</span> <span class="st">'logloss'</span>, eval_set <span class="op">=</span> evalset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>xgb_pred <span class="op">=</span> xgb.predict(X_test)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>xgb_predict_proba <span class="op">=</span> xgb.predict_proba(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="xgboost-metrics" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="xgboost-metrics">XGBoost Metrics</h2>
+<p>XGBoost is the best model so we will present some additional information</p>
+<section id="confusion-matrix-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="confusion-matrix-metrics">Confusion Matrix &amp; Metrics</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay object at 0x000001EAD2F7F760&gt;</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/confusion-matrix-xgb-5.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Test vs. Predicted - XGBoost:
+Accuracy: 0.990
+Precision: 1.000
+Recall: 0.984
+F1: 0.992
+R^2: 0.959
+MAE: 0.010
+RMSE: 0.098</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[14:21:43] WARNING: ..\src\learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective 'binary:logistic' was changed from 'error' to 'logloss'. Explicitly set eval_metric if you'd like to restore the old behavior.
+
+C:\Users\abhar\anaconda3\envs\MSBI_33200\lib\site-packages\xgboost\data.py:250: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  elif isinstance(data.columns, (pd.Int64Index, pd.RangeIndex)):
+Train vs. Predicted - XGBoost:
+Accuracy: 1.000
+Precision: 1.000
+Recall: 1.000
+F1: 1.000
+R^2: 1.000
+MAE: 0.000
+RMSE: 0.000</code></pre>
+</div>
+</div>
+</section>
+<section id="predicted-vs.-actuals" class="level3">
+<h3 class="anchored" data-anchor-id="predicted-vs.-actuals">Predicted vs.&nbsp;Actuals</h3>
+<p>Below is the raw output where “Predicted” is what the model predicted, “Actual” is the value in the dataset, and “Match” is whether or not the prediction matched the actual. There is only one False value at row 55.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Display of the one missed classification
+    Predicted  Actual  Match
+54          1       1   True
+55          0       1  False
+56          1       1   True</code></pre>
+</div>
+</div>
+</section>
+<section id="learning-curve" class="level3">
+<h3 class="anchored" data-anchor-id="learning-curve">Learning Curve</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/XGBoost%20Learning%20Curves-7.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>XGBoost is not overfitting on the training data given that a generalizability gap is noted in the learning curve.</p>
+</section>
+<section id="feature-importance" class="level3">
+<h3 class="anchored" data-anchor-id="feature-importance">Feature Importance</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/xgboost-feature-importance-9.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>I find it interesting that according to the model age and polydipsia are the two most important features. Clinically, regardless of age, we look for the classic “triad” of polydipsia, polyphagia, polyuria.</p>
+</section>
+<section id="visualization-of-decision-trees" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="visualization-of-decision-trees">Visualization of Decision Trees</h3>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-page">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/xgboost-decision-tree-worst-11.png" class="img-fluid" width="1056"></p>
+</div>
+</div>
+<p>The first decision tree uses all the available features to predict whether or not an individual has early-stage T2DM</p>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-page">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/xgboost-decision-tree-best-13.png" class="img-fluid" width="1056"></p>
+</div>
+</div>
+<p>The final decision tree uses only irritability, male gender, and alopecia to predict whether or not an individual has early-stage T2DM.</p>
+<p>I (AB) find this very interesting because the model is considering important a putative clinically-relevant skin manifestation of T2DM solely on the basis of individuals asking “Yes/No” questions <span class="citation" data-cites="RN11">(<a href="#ref-RN11" role="doc-biblioref">Miranda, Taype-Rondan, Tapia, Gastanadui-Gonzalez, &amp; Roman-Carpio, 2016</a>)</span>!</p>
+</section>
+</section>
+</section>
+<section id="model-evaluation-recap" class="level1">
+<h1>Model Evaluation Recap</h1>
+<p><strong><u>Interpretation</u></strong></p>
+<p>Accuracy: How often the model is correct<br>
+Precision: The proportion of time the model correctly predicts a positive<br>
+Recall: The proportion of actual positives that were identified correctly<br>
+(Accuracy, precision, and recall are all somewhat similar)<br>
+F1 Score: A balance between precision and recall</p>
+<p><a href="https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall">REFERENCE</a></p>
+<section id="summary-table" class="level2">
+<h2 class="anchored" data-anchor-id="summary-table">Summary Table</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">LABELS</th>
+<th style="text-align: left;">GNB_METRICS</th>
+<th style="text-align: left;">LOG_REG_METRICS</th>
+<th style="text-align: left;">XGB_METRICS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Accuracy</td>
+<td style="text-align: left;">0.933</td>
+<td style="text-align: left;">0.952</td>
+<td style="text-align: left;">0.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Precision</td>
+<td style="text-align: left;">0.913</td>
+<td style="text-align: left;">0.954</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Recall</td>
+<td style="text-align: left;">0.984</td>
+<td style="text-align: left;">0.969</td>
+<td style="text-align: left;">0.984</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F1</td>
+<td style="text-align: left;">0.947</td>
+<td style="text-align: left;">0.961</td>
+<td style="text-align: left;">0.992</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R^2</td>
+<td style="text-align: left;">0.716</td>
+<td style="text-align: left;">0.797</td>
+<td style="text-align: left;">0.959</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MAE</td>
+<td style="text-align: left;">0.067</td>
+<td style="text-align: left;">0.048</td>
+<td style="text-align: left;">0.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RMSE</td>
+<td style="text-align: left;">0.259</td>
+<td style="text-align: left;">0.219</td>
+<td style="text-align: left;">0.098</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="roc-curves" class="level2">
+<h2 class="anchored" data-anchor-id="roc-curves">ROC Curves</h2>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="MSBI_33200_FinalProject_files/figure-html/ROC%20Curve%20Graphs-1.png" class="img-fluid" width="1056"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusions" class="level1">
+<h1>Conclusions</h1>
+<p>The above exploration shows that an XGBoost-based machine learning model provides high accuracy and precision with respect to early detection/prediction of T2DM.</p>
+<p>Further directions: Many research groups have already performed variants of similar, next differentiating step would be including an NLP pipeline to generate the Kaggle dataset from clinical notes.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-RN4" class="csl-entry" role="doc-biblioentry">
+Bloomgarden, Z. (2021). Developments in type 1 and type 2 diabetes [Journal Article]. <em>Journal of Diabetes</em>, <em>13</em>(7), 530–531. https://doi.org/<a href="https://doi.org/10.1111/1753-0407.13186">https://doi.org/10.1111/1753-0407.13186</a>
+</div>
+<div id="ref-RN6" class="csl-entry" role="doc-biblioentry">
+Brownlee, J. (2020a). <em>Logistic regression for machine learning</em> [Web Page]. Retrieved from <a href="https://machinelearningmastery.com/logistic-regression-for-machine-learning/">https://machinelearningmastery.com/logistic-regression-for-machine-learning/</a>
+</div>
+<div id="ref-RN7" class="csl-entry" role="doc-biblioentry">
+Brownlee, J. (2020b). <em>Naive bayes for machine learning</em> [Web Page]. Retrieved from <a href="https://machinelearningmastery.com/naive-bayes-for-machine-learning/">https://machinelearningmastery.com/naive-bayes-for-machine-learning/</a>
+</div>
+<div id="ref-RN10" class="csl-entry" role="doc-biblioentry">
+CDC. (2021). <em>How type 2 diabetes affects your workforce</em> [Web Page]. Retrieved from <a href="https://www.cdc.gov/diabetes/prevention/how-type2-affects-workforce.htm#:~:text=Diabetes%20Is%20Costly,over%20a%205%2Dyear%20period.">https://www.cdc.gov/diabetes/prevention/how-type2-affects-workforce.htm#:~:text=Diabetes%20Is%20Costly,over%20a%205%2Dyear%20period.</a>
+</div>
+<div id="ref-RN8" class="csl-entry" role="doc-biblioentry">
+Datacamp. (n.d.). <em>When should i use XGBoost?</em> [Web Page]. Retrieved from <a href="https://campus.datacamp.com/courses/extreme-gradient-boosting-with-xgboost/classification-with-xgboost?ex=11">https://campus.datacamp.com/courses/extreme-gradient-boosting-with-xgboost/classification-with-xgboost?ex=11</a>
+</div>
+<div id="ref-RN9" class="csl-entry" role="doc-biblioentry">
+Harris, M. I., &amp; Eastman, R. C. (2000). Early detection of undiagnosed diabetes mellitus: A US perspective [Journal Article]. <em>Diabetes Metab Res Rev</em>, <em>16</em>(4), 230–236. <a href="https://doi.org/10.1002/1520-7560(2000)9999:9999<::aid-dmrr122>3.0.co;2-w">https://doi.org/10.1002/1520-7560(2000)9999:9999&lt;::aid-dmrr122&gt;3.0.co;2-w</a>
+</div>
+<div id="ref-RN5" class="csl-entry" role="doc-biblioentry">
+Hauser, R. G., Esserman, D., Beste, L. A., Ong, S. Y., Colomb, D. G., Bhargava, A., … Rose, M. G. (2021). A machine learning model to successfully predict future diagnosis of chronic myelogenous leukemia with retrospective electronic health records data [Journal Article]. <em>Am J Clin Pathol</em>, <em>156</em>(6), 1142–1148. <a href="https://doi.org/10.1093/ajcp/aqab086">https://doi.org/10.1093/ajcp/aqab086</a>
+</div>
+<div id="ref-RN3" class="csl-entry" role="doc-biblioentry">
+Inzucchi, B., SE; Lupsa. (2022). <em>Clinical presentation, diagnosis, and initial evaluation of diabetes mellitus in adults</em> [Web Page]. Retrieved from <a href="https://www.uptodate.com/contents/clinical-presentation-diagnosis-and-initial-evaluation-of-diabetes-mellitus-in-adults?csi=a8b1dcb7-8a71-4fbc-b3ed-a0bf5303db8a&amp;source=contentShare)">https://www.uptodate.com/contents/clinical-presentation-diagnosis-and-initial-evaluation-of-diabetes-mellitus-in-adults?csi=a8b1dcb7-8a71-4fbc-b3ed-a0bf5303db8a&amp;source=contentShare)</a>
+</div>
+<div id="ref-RN1" class="csl-entry" role="doc-biblioentry">
+Islam, M. M. F., Ferdousi, R., Rahman, S., &amp; Bushra, H. Y. (2019). Likelihood prediction of diabetes at early stage using data mining techniques [Journal Article]. <em>Computer Vision and Machine Intelligence in Medical Image Analysis</em>.
+</div>
+<div id="ref-RN2" class="csl-entry" role="doc-biblioentry">
+Khan, M. A. B., Hashim, M. J., King, J. K., Govender, R. D., Mustafa, H., &amp; Al Kaabi, J. (2020). Epidemiology of type 2 diabetes - global burden of disease and forecasted trends [Journal Article]. <em>J Epidemiol Glob Health</em>, <em>10</em>(1), 107–111. <a href="https://doi.org/10.2991/jegh.k.191028.001">https://doi.org/10.2991/jegh.k.191028.001</a>
+</div>
+<div id="ref-RN11" class="csl-entry" role="doc-biblioentry">
+Miranda, J. J., Taype-Rondan, A., Tapia, J. C., Gastanadui-Gonzalez, M. G., &amp; Roman-Carpio, R. (2016). Hair follicle characteristics as early marker of type 2 diabetes [Journal Article]. <em>Med Hypotheses</em>, <em>95</em>, 39–44. <a href="https://doi.org/10.1016/j.mehy.2016.08.009">https://doi.org/10.1016/j.mehy.2016.08.009</a>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

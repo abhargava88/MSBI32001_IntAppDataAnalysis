@@ -1,0 +1,224 @@
+---
+title: "MSBI 33200 - Manual Logistic Regression"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Preamble 
+
+Won, VERY nice work at getting this done manually! :) What I'm doing here is cleaning up your code and showing, perhaps, a more efficient way to do it. The less code you write, the lower the odds of a mistake :) 
+
+```{r setup}
+library(tidyverse) # Tidyverse loads dplyr, ggplot2, readr for you automatically
+# You don't need to manually load them, although you can if you wish to be explicit
+library(data.table) # I like this package for its fread() function
+library(mltools) # This will help us with the one-hot encoding we need later 
+
+diabetes <- 
+  fread("supporting_files/diabetes_data_upload.csv") %>%
+  rename_with(toupper) # This standardizes the case of the variables to uppercase 
+```
+
+We can accomplish all of this... 
+
+```{{r}}
+#Data Wrangling
+spec(diabetes_data)
+class(diabetes_data)
+##Gender
+unique(diabetes_data$Gender)
+diabetes_data$Gender <- ifelse(diabetes_data$Gender=="Male",1,0)
+diabetes_data$Gender
+##Polyuria
+unique(diabetes_data$Polyuria)
+diabetes_data$Polyuria <- ifelse(diabetes_data$Polyuria=="Yes",1,0)
+diabetes_data$Polyuria
+##Polydipsia
+unique(diabetes_data$Polydipsia)
+diabetes_data$Polydipsia <- ifelse(diabetes_data$Polydipsia=="Yes",1,0)
+diabetes_data$Polydipsia
+##'sudden weight loss'
+unique(diabetes_data$`sudden weight loss`)
+diabetes_data$`sudden weight loss` <- ifelse(diabetes_data$`sudden weight loss`=="Yes",1,0)
+diabetes_data$`sudden weight loss`
+##weakness
+unique(diabetes_data$weakness)
+diabetes_data$weakness <- ifelse(diabetes_data$weakness=="Yes",1,0)
+diabetes_data$weakness
+##Polyphagia
+unique(diabetes_data$Polyphagia)
+diabetes_data$Polyphagia <- ifelse(diabetes_data$Polyphagia=="Yes",1,0)
+diabetes_data$Polyphagia
+##'Genital thrush'
+unique(diabetes_data$`Genital thrush`)
+diabetes_data$`Genital thrush` <- ifelse(diabetes_data$`Genital thrush`=="Yes",1,0)
+diabetes_data$`Genital thrush`
+##'visual blurring'
+unique(diabetes_data$`visual blurring`)
+diabetes_data$`visual blurring` <- ifelse(diabetes_data$`visual blurring`=="Yes",1,0)
+diabetes_data$`visual blurring`
+##Itching
+unique(diabetes_data$Itching)
+diabetes_data$Itching <- ifelse(diabetes_data$Itching=="Yes",1,0)
+diabetes_data$Itching
+##Irritability
+unique(diabetes_data$Irritability)
+diabetes_data$Irritability <- ifelse(diabetes_data$Irritability=="Yes",1,0)
+unique(diabetes_data$Irritability)
+##'delayed healing'
+unique(diabetes_data$`delayed healing`)
+diabetes_data$`delayed healing` <- ifelse(diabetes_data$`delayed healing`=="Yes",1,0)
+unique(diabetes_data$`delayed healing`)
+##'partial paresis'
+unique(diabetes_data$`partial paresis`)
+diabetes_data$`partial paresis` <- ifelse(diabetes_data$`partial paresis`=="Yes",1,0)
+unique(diabetes_data$`partial paresis`)
+##'muscle stiffness'
+unique(diabetes_data$`muscle stiffness`)
+diabetes_data$`muscle stiffness` <- ifelse(diabetes_data$`muscle stiffness`=="Yes",1,0)
+unique(diabetes_data$`muscle stiffness`)
+##Alopecia
+unique(diabetes_data$Alopecia)
+diabetes_data$Alopecia <- ifelse(diabetes_data$Alopecia=="Yes",1,0)
+unique(diabetes_data$Alopecia)
+##Obesity
+unique(diabetes_data$Obesity)
+diabetes_data$Obesity <- ifelse(diabetes_data$Obesity=="Yes",1,0)
+unique(diabetes_data$Obesity)
+##class
+unique(diabetes_data$class)
+diabetes_data$class <- ifelse(diabetes_data$class=="Positive",1,0)
+unique(diabetes_data$class)
+```
+
+With this: 
+
+```{r data-wrangling}
+diabetes <- 
+diabetes %>%
+  mutate(across(where(is.character), as.factor))
+
+head(diabetes,10)
+```
+Factors are internally represented as numbers, but are displayed to us as text. 
+
+```{r}
+summary(diabetes)
+```
+
+```{{r}}
+#Checking Sample for Imbalance
+xtabs(~class + Gender, data = diabetes_data)
+xtabs(~class + Polyuria, data = diabetes_data)
+xtabs(~class + Polydipsia, data = diabetes_data)
+xtabs(~class + diabetes_data$`sudden weight loss`, data = diabetes_data)
+xtabs(~class + weakness, data = diabetes_data)
+xtabs(~class + Polyphagia, data = diabetes_data)
+xtabs(~class + diabetes_data$`Genital thrush`, data = diabetes_data)
+xtabs(~class + diabetes_data$`visual blurring`, data = diabetes_data)
+xtabs(~class + Itching, data = diabetes_data)
+xtabs(~class + Irritability, data = diabetes_data)
+xtabs(~class + diabetes_data$`delayed healing`, data = diabetes_data)
+xtabs(~class + diabetes_data$`partial paresis`, data = diabetes_data)
+xtabs(~class + diabetes_data$`muscle stiffness`, data = diabetes_data)
+xtabs(~class + Alopecia, data = diabetes_data)
+xtabs(~class + Obesity, data = diabetes_data)
+```
+
+What you did above was perfectly fine. Here's another way to do it with pipes (I'm just going to show one example here: 
+(ACTUALLY - This is  a really hard problem to solve succinctly, so your way above is better!)
+
+```{{r}}
+# My lousy attempt
+xtab_vars <- names(diabetes)[2:15]
+
+for (i in 1:length(xtab_vars)) { 
+  x <- 
+  diabetes %>%
+  group_by(CLASS, eval(parse(text = diabetes[,..i]))) %>%
+  tally() %>%
+  pivot_wider(names_from = CLASS,
+              values_from = n)
+  print(x)
+  }
+```
+
+```{{r}}
+#Logistic Regression Variable Selection -- Check for Correlations (p-value < 0.05)
+cor.test(diabetes_data$Age, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$Gender, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$Polyuria, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$Polydipsia, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$`sudden weight loss`, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$weakness, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$Polyphagia, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$`Genital thrush`, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$`visual blurring`, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$Itching, diabetes_data$class, method = "spearman") #diabetes_data$Itching <- NA
+cor.test(diabetes_data$Irritability, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$`delayed healing`, diabetes_data$class, method = "spearman") #diabetes_data$'delayed healing' <- NA
+cor.test(diabetes_data$`partial paresis`, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$`muscle stiffness`, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$Alopecia, diabetes_data$class, method = "spearman")
+cor.test(diabetes_data$Obesity, diabetes_data$class, method = "spearman") #diabetes_data$Obesity <- NA
+```
+
+We can accomplish the above with the following below more succinctly (and get a pretty picture to boot!) 
+
+```{r}
+# REF: https://stackoverflow.com/questions/62356378/spearman-correlation-plot-in-corrplot
+library(corrplot)
+
+diabetes %>% 
+  mutate(across(everything(), as.numeric)) %>%
+  cor(.,method = "spearman") %>%
+  corrplot(method = "color",
+           type = "upper",
+           addCoef.col = "black")
+```
+```{{r}}
+#Logistic Regression
+logistic_regression <- glm(diabetes_data$class ~ diabetes_data$Age + 
+      diabetes_data$Gender + 
+      diabetes_data$Polyuria + 
+      diabetes_data$Polydipsia + 
+      diabetes_data$`sudden weight loss` + 
+      diabetes_data$weakness + 
+      diabetes_data$Polyphagia + 
+      diabetes_data$`Genital thrush` + 
+      diabetes_data$`visual blurring` + 
+      diabetes_data$Irritability + 
+      diabetes_data$`partial paresis` + 
+      diabetes_data$`muscle stiffness` + 
+      diabetes_data$Alopecia, family = "binomial", data = diabetes_data)
+```
+
+Here's a shorthand way to accomplish the above: 
+
+```{r}
+log_reg <- glm(CLASS ~ ., family = "binomial", data = diabetes)
+summary(log_reg)
+```
+
+Below I'm coercing the CLASS variable to a numeric inline - it's shorter :) 
+
+```{r}
+cor.test(x = as.numeric(diabetes$CLASS), y = log_reg$fitted.values, method = "spearman")
+```
+
+Below is similar to what you did, I'm just performing some data transformations "on the fly". 
+
+```{r graph-log-reg}
+diabetes %>%
+  mutate(across(where(is.factor), as.numeric)) %>%
+  mutate(across(2:17, ~ .x - 1)) %>% 
+  ggplot() + 
+  geom_point(aes(x = log_reg$fitted.values, y = CLASS)) + 
+  geom_smooth(aes(x = log_reg$fitted.values, y = CLASS),
+              method = "glm",
+              method.args = list(family = "binomial"),
+              se = TRUE,
+              show.legend = TRUE)
+```
+
